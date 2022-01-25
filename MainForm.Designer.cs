@@ -1,6 +1,6 @@
 ﻿namespace PCConfig
 {
-  partial class formMain
+  partial class MainForm
   {
     /// <summary>
     /// Required designer variable.
@@ -31,22 +31,22 @@
 			this.PCConfigText = new System.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
-			this.checkGame = new System.Windows.Forms.CheckBox();
+			this.GameCheckBox = new System.Windows.Forms.CheckBox();
 			this.pictureBox3 = new System.Windows.Forms.PictureBox();
 			this.pictureBox4 = new System.Windows.Forms.PictureBox();
-			this.checkHome = new System.Windows.Forms.CheckBox();
-			this.checkWork = new System.Windows.Forms.CheckBox();
+			this.HomeCheckBox = new System.Windows.Forms.CheckBox();
+			this.WorkCheckBox = new System.Windows.Forms.CheckBox();
 			this.label1 = new System.Windows.Forms.Label();
-			this.textMin = new System.Windows.Forms.TextBox();
-			this.textMax = new System.Windows.Forms.TextBox();
+			this.MinPriceTextBox = new System.Windows.Forms.TextBox();
+			this.MaxPriceTextBox = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
-			this.buttonAutoConfig = new System.Windows.Forms.Button();
-			this.buttonClose = new System.Windows.Forms.Button();
+			this.AutoConfigButton = new System.Windows.Forms.Button();
+			this.CloseButton = new System.Windows.Forms.Button();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
-			this.comboCPU = new System.Windows.Forms.ComboBox();
-			this.comboGPU = new System.Windows.Forms.ComboBox();
+			this.CPUComboBox = new System.Windows.Forms.ComboBox();
+			this.GPUComboBox = new System.Windows.Forms.ComboBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -87,22 +87,22 @@
 			this.pictureBox2.TabIndex = 2;
 			this.pictureBox2.TabStop = false;
 			// 
-			// checkGame
+			// GameCheckBox
 			// 
-			this.checkGame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.GameCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.checkGame.Appearance = System.Windows.Forms.Appearance.Button;
-			this.checkGame.BackColor = System.Drawing.SystemColors.Control;
-			this.checkGame.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.checkGame.Location = new System.Drawing.Point(50, 565);
-			this.checkGame.Name = "checkGame";
-			this.checkGame.Size = new System.Drawing.Size(213, 66);
-			this.checkGame.TabIndex = 5;
-			this.checkGame.Text = "Игровая";
-			this.checkGame.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.checkGame.UseVisualStyleBackColor = false;
-			this.checkGame.CheckedChanged += new System.EventHandler(this.checkGame_CheckedChanged);
+			this.GameCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.GameCheckBox.BackColor = System.Drawing.SystemColors.Control;
+			this.GameCheckBox.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.GameCheckBox.Location = new System.Drawing.Point(50, 565);
+			this.GameCheckBox.Name = "GameCheckBox";
+			this.GameCheckBox.Size = new System.Drawing.Size(213, 66);
+			this.GameCheckBox.TabIndex = 5;
+			this.GameCheckBox.Text = "Игровая";
+			this.GameCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.GameCheckBox.UseVisualStyleBackColor = false;
+			this.GameCheckBox.CheckedChanged += new System.EventHandler(this.GameCheckBox_CheckedChanged);
 			// 
 			// pictureBox3
 			// 
@@ -125,33 +125,33 @@
 			this.pictureBox4.TabIndex = 7;
 			this.pictureBox4.TabStop = false;
 			// 
-			// checkHome
+			// HomeCheckBox
 			// 
-			this.checkHome.Appearance = System.Windows.Forms.Appearance.Button;
-			this.checkHome.BackColor = System.Drawing.SystemColors.Control;
-			this.checkHome.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.checkHome.Location = new System.Drawing.Point(576, 565);
-			this.checkHome.Name = "checkHome";
-			this.checkHome.Size = new System.Drawing.Size(213, 66);
-			this.checkHome.TabIndex = 8;
-			this.checkHome.Text = "Домашняя";
-			this.checkHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.checkHome.UseVisualStyleBackColor = false;
-			this.checkHome.CheckedChanged += new System.EventHandler(this.checkHome_CheckedChanged);
+			this.HomeCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.HomeCheckBox.BackColor = System.Drawing.SystemColors.Control;
+			this.HomeCheckBox.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.HomeCheckBox.Location = new System.Drawing.Point(576, 565);
+			this.HomeCheckBox.Name = "HomeCheckBox";
+			this.HomeCheckBox.Size = new System.Drawing.Size(213, 66);
+			this.HomeCheckBox.TabIndex = 8;
+			this.HomeCheckBox.Text = "Домашняя";
+			this.HomeCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.HomeCheckBox.UseVisualStyleBackColor = false;
+			this.HomeCheckBox.CheckedChanged += new System.EventHandler(this.HomeCheckBox_CheckedChanged);
 			// 
-			// checkWork
+			// WorkCheckBox
 			// 
-			this.checkWork.Appearance = System.Windows.Forms.Appearance.Button;
-			this.checkWork.BackColor = System.Drawing.SystemColors.Control;
-			this.checkWork.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.checkWork.Location = new System.Drawing.Point(313, 565);
-			this.checkWork.Name = "checkWork";
-			this.checkWork.Size = new System.Drawing.Size(213, 66);
-			this.checkWork.TabIndex = 9;
-			this.checkWork.Text = "Рабочая";
-			this.checkWork.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.checkWork.UseVisualStyleBackColor = false;
-			this.checkWork.CheckedChanged += new System.EventHandler(this.checkWork_CheckedChanged);
+			this.WorkCheckBox.Appearance = System.Windows.Forms.Appearance.Button;
+			this.WorkCheckBox.BackColor = System.Drawing.SystemColors.Control;
+			this.WorkCheckBox.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.WorkCheckBox.Location = new System.Drawing.Point(313, 565);
+			this.WorkCheckBox.Name = "WorkCheckBox";
+			this.WorkCheckBox.Size = new System.Drawing.Size(213, 66);
+			this.WorkCheckBox.TabIndex = 9;
+			this.WorkCheckBox.Text = "Рабочая";
+			this.WorkCheckBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.WorkCheckBox.UseVisualStyleBackColor = false;
+			this.WorkCheckBox.CheckedChanged += new System.EventHandler(this.WorkCheckBox_CheckedChanged);
 			// 
 			// label1
 			// 
@@ -165,19 +165,19 @@
 			this.label1.Text = "Цена";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// textMin
+			// MinPriceTextBox
 			// 
-			this.textMin.Location = new System.Drawing.Point(825, 458);
-			this.textMin.Name = "textMin";
-			this.textMin.Size = new System.Drawing.Size(170, 20);
-			this.textMin.TabIndex = 11;
+			this.MinPriceTextBox.Location = new System.Drawing.Point(825, 458);
+			this.MinPriceTextBox.Name = "MinPriceTextBox";
+			this.MinPriceTextBox.Size = new System.Drawing.Size(170, 20);
+			this.MinPriceTextBox.TabIndex = 11;
 			// 
-			// textMax
+			// MaxPriceTextBox
 			// 
-			this.textMax.Location = new System.Drawing.Point(1050, 458);
-			this.textMax.Name = "textMax";
-			this.textMax.Size = new System.Drawing.Size(170, 20);
-			this.textMax.TabIndex = 12;
+			this.MaxPriceTextBox.Location = new System.Drawing.Point(1050, 458);
+			this.MaxPriceTextBox.Name = "MaxPriceTextBox";
+			this.MaxPriceTextBox.Size = new System.Drawing.Size(170, 20);
+			this.MaxPriceTextBox.TabIndex = 12;
 			// 
 			// label2
 			// 
@@ -201,31 +201,31 @@
 			this.label3.TabIndex = 14;
 			this.label3.Text = "Максимальная";
 			// 
-			// buttonAutoConfig
+			// AutoConfigButton
 			// 
-			this.buttonAutoConfig.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonAutoConfig.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonAutoConfig.Location = new System.Drawing.Point(825, 565);
-			this.buttonAutoConfig.Name = "buttonAutoConfig";
-			this.buttonAutoConfig.Size = new System.Drawing.Size(395, 66);
-			this.buttonAutoConfig.TabIndex = 15;
-			this.buttonAutoConfig.Text = "Собрать";
-			this.buttonAutoConfig.UseVisualStyleBackColor = false;
-			this.buttonAutoConfig.Click += new System.EventHandler(this.buttonAutoConfig_Click);
+			this.AutoConfigButton.BackColor = System.Drawing.SystemColors.Control;
+			this.AutoConfigButton.Font = new System.Drawing.Font("Segoe Print", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.AutoConfigButton.Location = new System.Drawing.Point(825, 565);
+			this.AutoConfigButton.Name = "AutoConfigButton";
+			this.AutoConfigButton.Size = new System.Drawing.Size(395, 66);
+			this.AutoConfigButton.TabIndex = 15;
+			this.AutoConfigButton.Text = "Собрать";
+			this.AutoConfigButton.UseVisualStyleBackColor = false;
+			this.AutoConfigButton.Click += new System.EventHandler(this.AutoConfigButton_Click);
 			// 
-			// buttonClose
+			// CloseButton
 			// 
-			this.buttonClose.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonClose.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonClose.Location = new System.Drawing.Point(1168, 47);
-			this.buttonClose.Name = "buttonClose";
-			this.buttonClose.Size = new System.Drawing.Size(52, 52);
-			this.buttonClose.TabIndex = 18;
-			this.buttonClose.Text = "X";
-			this.buttonClose.UseVisualStyleBackColor = true;
-			this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+			this.CloseButton.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CloseButton.Location = new System.Drawing.Point(1168, 47);
+			this.CloseButton.Name = "CloseButton";
+			this.CloseButton.Size = new System.Drawing.Size(52, 52);
+			this.CloseButton.TabIndex = 18;
+			this.CloseButton.Text = "X";
+			this.CloseButton.UseVisualStyleBackColor = true;
+			this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// label4
 			// 
@@ -249,31 +249,31 @@
 			this.label5.TabIndex = 20;
 			this.label5.Text = "Производитель видеокарты";
 			// 
-			// comboCPU
+			// CPUComboBox
 			// 
-			this.comboCPU.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboCPU.FormattingEnabled = true;
-			this.comboCPU.Items.AddRange(new object[] {
+			this.CPUComboBox.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CPUComboBox.FormattingEnabled = true;
+			this.CPUComboBox.Items.AddRange(new object[] {
             "INTEL",
             "AMD"});
-			this.comboCPU.Location = new System.Drawing.Point(825, 243);
-			this.comboCPU.Name = "comboCPU";
-			this.comboCPU.Size = new System.Drawing.Size(395, 31);
-			this.comboCPU.TabIndex = 21;
+			this.CPUComboBox.Location = new System.Drawing.Point(825, 243);
+			this.CPUComboBox.Name = "CPUComboBox";
+			this.CPUComboBox.Size = new System.Drawing.Size(395, 31);
+			this.CPUComboBox.TabIndex = 21;
 			// 
-			// comboGPU
+			// GPUComboBox
 			// 
-			this.comboGPU.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboGPU.FormattingEnabled = true;
-			this.comboGPU.Items.AddRange(new object[] {
+			this.GPUComboBox.Font = new System.Drawing.Font("Segoe Print", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.GPUComboBox.FormattingEnabled = true;
+			this.GPUComboBox.Items.AddRange(new object[] {
             "NVIDIA",
             "AMD"});
-			this.comboGPU.Location = new System.Drawing.Point(825, 333);
-			this.comboGPU.Name = "comboGPU";
-			this.comboGPU.Size = new System.Drawing.Size(395, 31);
-			this.comboGPU.TabIndex = 22;
+			this.GPUComboBox.Location = new System.Drawing.Point(825, 333);
+			this.GPUComboBox.Name = "GPUComboBox";
+			this.GPUComboBox.Size = new System.Drawing.Size(395, 31);
+			this.GPUComboBox.TabIndex = 22;
 			// 
-			// formMain
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -281,30 +281,30 @@
 			this.BackColor = System.Drawing.SystemColors.WindowFrame;
 			this.BackgroundImage = global::PCConfig.Properties.Resources.look_com_ua_78369;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
-			this.Controls.Add(this.comboGPU);
-			this.Controls.Add(this.comboCPU);
+			this.Controls.Add(this.GPUComboBox);
+			this.Controls.Add(this.CPUComboBox);
 			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
-			this.Controls.Add(this.buttonClose);
-			this.Controls.Add(this.buttonAutoConfig);
+			this.Controls.Add(this.CloseButton);
+			this.Controls.Add(this.AutoConfigButton);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.textMax);
-			this.Controls.Add(this.textMin);
+			this.Controls.Add(this.MaxPriceTextBox);
+			this.Controls.Add(this.MinPriceTextBox);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.checkWork);
-			this.Controls.Add(this.checkHome);
+			this.Controls.Add(this.WorkCheckBox);
+			this.Controls.Add(this.HomeCheckBox);
 			this.Controls.Add(this.pictureBox4);
 			this.Controls.Add(this.pictureBox3);
-			this.Controls.Add(this.checkGame);
+			this.Controls.Add(this.GameCheckBox);
 			this.Controls.Add(this.pictureBox2);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.PCConfigText);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "formMain";
+			this.Name = "MainForm";
 			this.Text = "formMain";
-			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formMain_MouseDown);
-			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formMain_MouseMove);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -319,21 +319,21 @@
     private System.Windows.Forms.Label PCConfigText;
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.PictureBox pictureBox2;
-    private System.Windows.Forms.CheckBox checkGame;
+    private System.Windows.Forms.CheckBox GameCheckBox;
     private System.Windows.Forms.PictureBox pictureBox3;
     private System.Windows.Forms.PictureBox pictureBox4;
-    private System.Windows.Forms.CheckBox checkHome;
-    private System.Windows.Forms.CheckBox checkWork;
+    private System.Windows.Forms.CheckBox HomeCheckBox;
+    private System.Windows.Forms.CheckBox WorkCheckBox;
     private System.Windows.Forms.Label label1;
-    private System.Windows.Forms.TextBox textMin;
-    private System.Windows.Forms.TextBox textMax;
+    private System.Windows.Forms.TextBox MinPriceTextBox;
+    private System.Windows.Forms.TextBox MaxPriceTextBox;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.Label label3;
-    private System.Windows.Forms.Button buttonAutoConfig;
-    private System.Windows.Forms.Button buttonClose;
+    private System.Windows.Forms.Button AutoConfigButton;
+    private System.Windows.Forms.Button CloseButton;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Label label5;
-    private System.Windows.Forms.ComboBox comboCPU;
-    private System.Windows.Forms.ComboBox comboGPU;
+    private System.Windows.Forms.ComboBox CPUComboBox;
+    private System.Windows.Forms.ComboBox GPUComboBox;
   }
 }

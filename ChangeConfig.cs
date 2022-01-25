@@ -30,21 +30,21 @@ namespace PCConfig
 
 		private void FillCombos(Config config)
 		{
-			comboCPU.Text = config.CPU["Company"] + " " + config.CPU["Model"];
+			CPUComboBox.Text = config.CPU["Company"] + " " + config.CPU["Model"];
 
-			if (config.GPU != null) comboGPU.Text = config.GPU["Company"] + " " + config.GPU["Model"] + " на " + config.GPU["Memory"] + " Гб";
-			else comboGPU.Text = "Интегрированное графическое ядро процессора";
+			if (config.GPU != null) GPUComboBox.Text = config.GPU["Company"] + " " + config.GPU["Model"] + " на " + config.GPU["Memory"] + " Гб";
+			else GPUComboBox.Text = "Интегрированное графическое ядро процессора";
 
-			comboMother.Text = config.Mother["Company"] + " " + config.Mother["Model"];
-			comboRAM.Text = config.RAM["Company"] + " " + config.RAM["Model"] + " " + config.RAM["Memory"] + " Гб";
-			comboNumOfRam.Text = config.numOfRam.ToString() + " шт.";
-			comboPower.Text = config.Power["Company"] + " " + config.Power["Model"] + " " + config.Power["Power"] + " Вт";
-			comboHard.Text = config.Hard["Company"] + " " + config.Hard["Model"] + " на " + config.Hard["Memory"] + " Гб";
-			comboCooler.Text = config.Cooler["Company"] + " " + config.Cooler["Model"];
-			comboCase.Text = config.Case["Company"] + " " + config.Case["Model"];
+			MotherComboBox.Text = config.Mother["Company"] + " " + config.Mother["Model"];
+			RAMComboBox.Text = config.RAM["Company"] + " " + config.RAM["Model"] + " " + config.RAM["Memory"] + " Гб";
+			NumOfRamComboBox.Text = config.numOfRam.ToString() + " шт.";
+			PowerComboBox.Text = config.Power["Company"] + " " + config.Power["Model"] + " " + config.Power["Power"] + " Вт";
+			HardComboBox.Text = config.Hard["Company"] + " " + config.Hard["Model"] + " на " + config.Hard["Memory"] + " Гб";
+			CoolerComboBox.Text = config.Cooler["Company"] + " " + config.Cooler["Model"];
+			CaseComboBox.Text = config.Case["Company"] + " " + config.Case["Model"];
 
-			if (config.SSD != null) comboSSD.Text = config.SSD["Company"] + " " + config.SSD["Model"] + " на " + config.SSD["Memory"] + " Гб";
-			else comboSSD.Text = "Отсутствует";
+			if (config.SSD != null) SSDComboBox.Text = config.SSD["Company"] + " " + config.SSD["Model"] + " на " + config.SSD["Memory"] + " Гб";
+			else SSDComboBox.Text = "Отсутствует";
 
 			labelPrice.Text = config.GetCurrentPrice() + " руб.";
 		}
@@ -55,26 +55,26 @@ namespace PCConfig
 			FillCombos(usconfig);
 		}
 
-		private void buttonBack_Click(object sender, EventArgs e)
+		private void BackButton_Click(object sender, EventArgs e)
 		{
-			formAuto changedAuto = new formAuto(config);
+			AutoForm changedAuto = new AutoForm(config);
 			this.Hide();
 			changedAuto.Show();
 		}
-		private void buttonClose_Click(object sender, EventArgs e)
+		private void CloseButton_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
 
-		private void buttonSave_Click(object sender, EventArgs e)
+		private void SaveButton_Click(object sender, EventArgs e)
 		{
 			config = usconfig;
-			formAuto changedAuto = new formAuto(config);
+			AutoForm changedAuto = new AutoForm(config);
 			this.Hide();
 			changedAuto.Show();
 		}
 
-		private void chbuttonCPU_Click(object sender, EventArgs e)
+		private void ChangeCPUButton_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetCPU = new MySqlCommand("SELECT * FROM `cpu` WHERE `Company` = @reqCom AND `Socket` = @reqSocket ORDER BY `Price`");
 			commandGetCPU.Parameters.Add("@reqCom", MySqlDbType.VarChar).Value = usconfig.CPU["Company"];
@@ -86,16 +86,16 @@ namespace PCConfig
 			{
 				listSt[i] = CPU[i]["Company"] + " " + CPU[i]["Model"];
 			}
-			comboCPU.Items.Clear();
-			comboCPU.Items.AddRange(listSt);
+			CPUComboBox.Items.Clear();
+			CPUComboBox.Items.AddRange(listSt);
 		}
-		private void comboCPU_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboCPU_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.CPU = CPU[comboCPU.Items.IndexOf(comboCPU.Text)];
+			usconfig.CPU = CPU[CPUComboBox.Items.IndexOf(CPUComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonGPU_Click(object sender, EventArgs e)
+		private void ChbuttonGPU_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetGPU = new MySqlCommand("SELECT * FROM `gpu` WHERE `Company` = @reqParam ORDER BY `Price`");
 			commandGetGPU.Parameters.Add("@reqParam", MySqlDbType.VarChar).Value = usconfig.GPU["Company"];
@@ -106,17 +106,17 @@ namespace PCConfig
 			{
 				listSt[i] = GPU[i]["Company"] + " " + GPU[i]["Model"] + " на " + GPU[i]["Memory"] + " Гб";
 			}
-			comboGPU.Items.Clear();
-			comboGPU.Items.AddRange(listSt);
+			GPUComboBox.Items.Clear();
+			GPUComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboGPU_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboGPU_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.GPU = GPU[comboGPU.Items.IndexOf(comboGPU.Text)];
+			usconfig.GPU = GPU[GPUComboBox.Items.IndexOf(GPUComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonMother_Click(object sender, EventArgs e)
+		private void ChbuttonMother_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetMB = new MySqlCommand("SELECT * FROM `motherboard` WHERE `Socket` = @reqSocket AND `NumOfRam` > @nRam ORDER BY `Price`");
 			commandGetMB.Parameters.Add("@reqSocket", MySqlDbType.VarChar).Value = usconfig.CPU["Socket"];
@@ -128,17 +128,17 @@ namespace PCConfig
 			{
 				listSt[i] = Mother[i]["Company"] + " " + Mother[i]["Model"];
 			}
-			comboMother.Items.Clear();
-			comboMother.Items.AddRange(listSt);
+			MotherComboBox.Items.Clear();
+			MotherComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboMother_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboMother_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.Mother = Mother[comboMother.Items.IndexOf(comboMother.Text)];
+			usconfig.Mother = Mother[MotherComboBox.Items.IndexOf(MotherComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonRam_Click(object sender, EventArgs e)
+		private void ChbuttonRam_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetRam = new MySqlCommand("SELECT * FROM `ram` ORDER BY `Price`");
 
@@ -148,33 +148,33 @@ namespace PCConfig
 			{
 				listSt[i] = RAM[i]["Company"] + " " + RAM[i]["Model"] + " " + RAM[i]["Memory"] + " GB";
 			}
-			comboRAM.Items.Clear();
-			comboRAM.Items.AddRange(listSt);
+			RAMComboBox.Items.Clear();
+			RAMComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboRAM_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboRAM_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.RAM = RAM[comboRAM.Items.IndexOf(comboRAM.Text)];
+			usconfig.RAM = RAM[RAMComboBox.Items.IndexOf(RAMComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonNumOfRam_Click(object sender, EventArgs e)
+		private void ChbuttonNumOfRam_Click(object sender, EventArgs e)
 		{
-			comboRAM.Items.Clear();
+			RAMComboBox.Items.Clear();
 			for (int i = 1; i <= Convert.ToInt32(usconfig.Mother["NumOfRam"]); i++)
 			{
-				comboNumOfRam.Items.Add(i + " шт.");
+				NumOfRamComboBox.Items.Add(i + " шт.");
 			}
 		}
 
-		private void comboNumOfRam_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboNumOfRam_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			string[] list = comboNumOfRam.Text.Split(' ');
+			string[] list = NumOfRamComboBox.Text.Split(' ');
 			usconfig.numOfRam = Convert.ToInt32(list[0]);
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonPower_Click(object sender, EventArgs e)
+		private void ChbuttonPower_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetPS = new MySqlCommand("SELECT * FROM `power` WHERE `Power` > @pow ORDER BY `Price`");
 			commandGetPS.Parameters.Add("@pow", MySqlDbType.Int32).Value = usconfig.GPU["recPower"];
@@ -185,17 +185,17 @@ namespace PCConfig
 			{
 				listSt[i] = Power[i]["Company"] + " " + Power[i]["Model"] + " на " + Power[i]["Power"] + " Вт";
 			}
-			comboPower.Items.Clear();
-			comboPower.Items.AddRange(listSt);
+			PowerComboBox.Items.Clear();
+			PowerComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboPower_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboPower_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.Power = Power[comboPower.Items.IndexOf(comboPower.Text)];
+			usconfig.Power = Power[PowerComboBox.Items.IndexOf(PowerComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonHard_Click(object sender, EventArgs e)
+		private void ChbuttonHard_Click(object sender, EventArgs e)
 		{
 
 			MySqlCommand commandGetHD = new MySqlCommand("SELECT * FROM `harddrive` ORDER BY `Price`");
@@ -206,17 +206,17 @@ namespace PCConfig
 			{
 				listSt[i] = Hard[i]["Company"] + " " + Hard[i]["Model"] + " на " + Hard[i]["Memory"] + " Гб";
 			}
-			comboHard.Items.Clear();
-			comboHard.Items.AddRange(listSt);
+			HardComboBox.Items.Clear();
+			HardComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboHard_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboHard_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.Hard = Hard[comboHard.Items.IndexOf(comboHard.Text)];
+			usconfig.Hard = Hard[HardComboBox.Items.IndexOf(HardComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonCooler_Click(object sender, EventArgs e)
+		private void ChbuttonCooler_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetCooler = new MySqlCommand("SELECT * FROM `cooler` WHERE `TDP` > @tdp ORDER BY `Price`");
 			commandGetCooler.Parameters.Add("@tdp", MySqlDbType.Int32).Value = usconfig.CPU["TDP"];
@@ -227,17 +227,17 @@ namespace PCConfig
 			{
 				listSt[i] = Cooler[i]["Company"] + " " + Cooler[i]["Model"];
 			}
-			comboCooler.Items.Clear();
-			comboCooler.Items.AddRange(listSt);
+			CoolerComboBox.Items.Clear();
+			CoolerComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboCooler_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboCooler_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.Cooler = Cooler[comboCooler.Items.IndexOf(comboCooler.Text)];
+			usconfig.Cooler = Cooler[CoolerComboBox.Items.IndexOf(CoolerComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void chbuttonCase_Click(object sender, EventArgs e)
+		private void ChbuttonCase_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetCase = new MySqlCommand("SELECT * FROM `case` WHERE `Form` = @form ORDER BY `Price`");
 			commandGetCase.Parameters.Add("@form", MySqlDbType.VarChar).Value = usconfig.Mother["Form"];
@@ -248,17 +248,17 @@ namespace PCConfig
 			{
 				listSt[i] = Case[i]["Company"] + " " + Case[i]["Model"];
 			}
-			comboCase.Items.Clear();
-			comboCase.Items.AddRange(listSt);
+			CaseComboBox.Items.Clear();
+			CaseComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboCase_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboCase_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.Case = Case[comboCase.Items.IndexOf(comboCase.Text)];
+			usconfig.Case = Case[CaseComboBox.Items.IndexOf(CaseComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 
-		private void buttonSSD_Click(object sender, EventArgs e)
+		private void ButtonSSD_Click(object sender, EventArgs e)
 		{
 			MySqlCommand commandGetSSD = new MySqlCommand("SELECT * FROM `ssd` ORDER BY `Price`");
 			
@@ -268,13 +268,13 @@ namespace PCConfig
 			{
 				listSt[i] = SSD[i]["Company"] + " " + SSD[i]["Model"] + " на " + SSD[i]["Memory"] + " Гб";
 			}
-			comboSSD.Items.Clear();
-			comboSSD.Items.AddRange(listSt);
+			SSDComboBox.Items.Clear();
+			SSDComboBox.Items.AddRange(listSt);
 		}
 
-		private void comboSSD_SelectedIndexChanged(object sender, EventArgs e)
+		private void ComboSSD_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			usconfig.SSD = SSD[comboSSD.Items.IndexOf(comboSSD.Text)];
+			usconfig.SSD = SSD[SSDComboBox.Items.IndexOf(SSDComboBox.Text)];
 			labelPrice.Text = usconfig.GetCurrentPrice().ToString() + " руб.";
 		}
 

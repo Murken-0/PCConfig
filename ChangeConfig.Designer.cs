@@ -30,8 +30,8 @@ namespace PCConfig
 		private void InitializeComponent()
 		{
 			this.buttonClose = new System.Windows.Forms.Button();
-			this.buttonBack = new System.Windows.Forms.Button();
-			this.comboCPU = new System.Windows.Forms.ComboBox();
+			this.BackButton = new System.Windows.Forms.Button();
+			this.CPUComboBox = new System.Windows.Forms.ComboBox();
 			this.labelSSD = new System.Windows.Forms.Label();
 			this.labelGPU = new System.Windows.Forms.Label();
 			this.labelMotherboard = new System.Windows.Forms.Label();
@@ -42,26 +42,26 @@ namespace PCConfig
 			this.labelCase = new System.Windows.Forms.Label();
 			this.labelCPU = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
-			this.comboSSD = new System.Windows.Forms.ComboBox();
-			this.comboCase = new System.Windows.Forms.ComboBox();
-			this.comboCooler = new System.Windows.Forms.ComboBox();
-			this.comboHard = new System.Windows.Forms.ComboBox();
-			this.comboPower = new System.Windows.Forms.ComboBox();
-			this.comboNumOfRam = new System.Windows.Forms.ComboBox();
-			this.comboRAM = new System.Windows.Forms.ComboBox();
-			this.comboMother = new System.Windows.Forms.ComboBox();
-			this.comboGPU = new System.Windows.Forms.ComboBox();
-			this.chbuttonCPU = new System.Windows.Forms.Button();
-			this.buttonSSD = new System.Windows.Forms.Button();
-			this.chbuttonCase = new System.Windows.Forms.Button();
-			this.chbuttonCooler = new System.Windows.Forms.Button();
-			this.chbuttonHard = new System.Windows.Forms.Button();
-			this.chbuttonPower = new System.Windows.Forms.Button();
-			this.chbuttonNumOfRam = new System.Windows.Forms.Button();
-			this.chbuttonRam = new System.Windows.Forms.Button();
-			this.chbuttonMother = new System.Windows.Forms.Button();
-			this.chbuttonGPU = new System.Windows.Forms.Button();
-			this.buttonSave = new System.Windows.Forms.Button();
+			this.SSDComboBox = new System.Windows.Forms.ComboBox();
+			this.CaseComboBox = new System.Windows.Forms.ComboBox();
+			this.CoolerComboBox = new System.Windows.Forms.ComboBox();
+			this.HardComboBox = new System.Windows.Forms.ComboBox();
+			this.PowerComboBox = new System.Windows.Forms.ComboBox();
+			this.NumOfRamComboBox = new System.Windows.Forms.ComboBox();
+			this.RAMComboBox = new System.Windows.Forms.ComboBox();
+			this.MotherComboBox = new System.Windows.Forms.ComboBox();
+			this.GPUComboBox = new System.Windows.Forms.ComboBox();
+			this.ChangeCPUButton = new System.Windows.Forms.Button();
+			this.ChangeSSDButton = new System.Windows.Forms.Button();
+			this.ChangeCaseButton = new System.Windows.Forms.Button();
+			this.ChangeCoolerButton = new System.Windows.Forms.Button();
+			this.ChangeHardButton = new System.Windows.Forms.Button();
+			this.ChangePowerButton = new System.Windows.Forms.Button();
+			this.ChangeNumOfRamButton = new System.Windows.Forms.Button();
+			this.ChangeRAMButton = new System.Windows.Forms.Button();
+			this.ChangeMotherButton = new System.Windows.Forms.Button();
+			this.ChangeGPUButton = new System.Windows.Forms.Button();
+			this.SaveButton = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.labelPrice = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
@@ -81,30 +81,30 @@ namespace PCConfig
 			this.buttonClose.TabIndex = 20;
 			this.buttonClose.Text = "X";
 			this.buttonClose.UseVisualStyleBackColor = false;
-			this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+			this.buttonClose.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
-			// buttonBack
+			// BackButton
 			// 
-			this.buttonBack.AutoSize = true;
-			this.buttonBack.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonBack.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonBack.Location = new System.Drawing.Point(19, 17);
-			this.buttonBack.Name = "buttonBack";
-			this.buttonBack.Size = new System.Drawing.Size(84, 50);
-			this.buttonBack.TabIndex = 35;
-			this.buttonBack.Text = "←";
-			this.buttonBack.UseVisualStyleBackColor = false;
-			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+			this.BackButton.AutoSize = true;
+			this.BackButton.BackColor = System.Drawing.SystemColors.Control;
+			this.BackButton.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.BackButton.Location = new System.Drawing.Point(19, 17);
+			this.BackButton.Name = "BackButton";
+			this.BackButton.Size = new System.Drawing.Size(84, 50);
+			this.BackButton.TabIndex = 35;
+			this.BackButton.Text = "←";
+			this.BackButton.UseVisualStyleBackColor = false;
+			this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
 			// 
-			// comboCPU
+			// CPUComboBox
 			// 
-			this.comboCPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboCPU.FormattingEnabled = true;
-			this.comboCPU.Location = new System.Drawing.Point(320, 130);
-			this.comboCPU.Name = "comboCPU";
-			this.comboCPU.Size = new System.Drawing.Size(616, 32);
-			this.comboCPU.TabIndex = 36;
-			this.comboCPU.SelectedIndexChanged += new System.EventHandler(this.comboCPU_SelectedIndexChanged);
+			this.CPUComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CPUComboBox.FormattingEnabled = true;
+			this.CPUComboBox.Location = new System.Drawing.Point(320, 130);
+			this.CPUComboBox.Name = "CPUComboBox";
+			this.CPUComboBox.Size = new System.Drawing.Size(616, 32);
+			this.CPUComboBox.TabIndex = 36;
+			this.CPUComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboCPU_SelectedIndexChanged);
 			// 
 			// labelSSD
 			// 
@@ -246,229 +246,229 @@ namespace PCConfig
 			this.label1.TabIndex = 46;
 			this.label1.Text = "Количество плашек ОП:";
 			// 
-			// comboSSD
+			// SSDComboBox
 			// 
-			this.comboSSD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboSSD.FormattingEnabled = true;
-			this.comboSSD.Items.AddRange(new object[] {
+			this.SSDComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.SSDComboBox.FormattingEnabled = true;
+			this.SSDComboBox.Items.AddRange(new object[] {
             "lol"});
-			this.comboSSD.Location = new System.Drawing.Point(320, 509);
-			this.comboSSD.Name = "comboSSD";
-			this.comboSSD.Size = new System.Drawing.Size(616, 32);
-			this.comboSSD.TabIndex = 47;
-			this.comboSSD.SelectedIndexChanged += new System.EventHandler(this.comboSSD_SelectedIndexChanged);
+			this.SSDComboBox.Location = new System.Drawing.Point(320, 509);
+			this.SSDComboBox.Name = "SSDComboBox";
+			this.SSDComboBox.Size = new System.Drawing.Size(616, 32);
+			this.SSDComboBox.TabIndex = 47;
+			this.SSDComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboSSD_SelectedIndexChanged);
 			// 
-			// comboCase
+			// CaseComboBox
 			// 
-			this.comboCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboCase.FormattingEnabled = true;
-			this.comboCase.Location = new System.Drawing.Point(320, 467);
-			this.comboCase.Name = "comboCase";
-			this.comboCase.Size = new System.Drawing.Size(616, 32);
-			this.comboCase.TabIndex = 48;
-			this.comboCase.SelectedIndexChanged += new System.EventHandler(this.comboCase_SelectedIndexChanged);
+			this.CaseComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CaseComboBox.FormattingEnabled = true;
+			this.CaseComboBox.Location = new System.Drawing.Point(320, 467);
+			this.CaseComboBox.Name = "CaseComboBox";
+			this.CaseComboBox.Size = new System.Drawing.Size(616, 32);
+			this.CaseComboBox.TabIndex = 48;
+			this.CaseComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboCase_SelectedIndexChanged);
 			// 
-			// comboCooler
+			// CoolerComboBox
 			// 
-			this.comboCooler.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboCooler.FormattingEnabled = true;
-			this.comboCooler.Location = new System.Drawing.Point(320, 425);
-			this.comboCooler.Name = "comboCooler";
-			this.comboCooler.Size = new System.Drawing.Size(616, 32);
-			this.comboCooler.TabIndex = 49;
-			this.comboCooler.SelectedIndexChanged += new System.EventHandler(this.comboCooler_SelectedIndexChanged);
+			this.CoolerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.CoolerComboBox.FormattingEnabled = true;
+			this.CoolerComboBox.Location = new System.Drawing.Point(320, 425);
+			this.CoolerComboBox.Name = "CoolerComboBox";
+			this.CoolerComboBox.Size = new System.Drawing.Size(616, 32);
+			this.CoolerComboBox.TabIndex = 49;
+			this.CoolerComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboCooler_SelectedIndexChanged);
 			// 
-			// comboHard
+			// HardComboBox
 			// 
-			this.comboHard.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboHard.FormattingEnabled = true;
-			this.comboHard.Location = new System.Drawing.Point(320, 383);
-			this.comboHard.Name = "comboHard";
-			this.comboHard.Size = new System.Drawing.Size(616, 32);
-			this.comboHard.TabIndex = 50;
-			this.comboHard.SelectedIndexChanged += new System.EventHandler(this.comboHard_SelectedIndexChanged);
+			this.HardComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.HardComboBox.FormattingEnabled = true;
+			this.HardComboBox.Location = new System.Drawing.Point(320, 383);
+			this.HardComboBox.Name = "HardComboBox";
+			this.HardComboBox.Size = new System.Drawing.Size(616, 32);
+			this.HardComboBox.TabIndex = 50;
+			this.HardComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboHard_SelectedIndexChanged);
 			// 
-			// comboPower
+			// PowerComboBox
 			// 
-			this.comboPower.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboPower.FormattingEnabled = true;
-			this.comboPower.Location = new System.Drawing.Point(320, 341);
-			this.comboPower.Name = "comboPower";
-			this.comboPower.Size = new System.Drawing.Size(616, 32);
-			this.comboPower.TabIndex = 51;
-			this.comboPower.SelectedIndexChanged += new System.EventHandler(this.comboPower_SelectedIndexChanged);
+			this.PowerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.PowerComboBox.FormattingEnabled = true;
+			this.PowerComboBox.Location = new System.Drawing.Point(320, 341);
+			this.PowerComboBox.Name = "PowerComboBox";
+			this.PowerComboBox.Size = new System.Drawing.Size(616, 32);
+			this.PowerComboBox.TabIndex = 51;
+			this.PowerComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboPower_SelectedIndexChanged);
 			// 
-			// comboNumOfRam
+			// NumOfRamComboBox
 			// 
-			this.comboNumOfRam.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboNumOfRam.FormattingEnabled = true;
-			this.comboNumOfRam.Location = new System.Drawing.Point(320, 300);
-			this.comboNumOfRam.Name = "comboNumOfRam";
-			this.comboNumOfRam.Size = new System.Drawing.Size(616, 32);
-			this.comboNumOfRam.TabIndex = 52;
-			this.comboNumOfRam.SelectedIndexChanged += new System.EventHandler(this.comboNumOfRam_SelectedIndexChanged);
+			this.NumOfRamComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NumOfRamComboBox.FormattingEnabled = true;
+			this.NumOfRamComboBox.Location = new System.Drawing.Point(320, 300);
+			this.NumOfRamComboBox.Name = "NumOfRamComboBox";
+			this.NumOfRamComboBox.Size = new System.Drawing.Size(616, 32);
+			this.NumOfRamComboBox.TabIndex = 52;
+			this.NumOfRamComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboNumOfRam_SelectedIndexChanged);
 			// 
-			// comboRAM
+			// RAMComboBox
 			// 
-			this.comboRAM.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboRAM.FormattingEnabled = true;
-			this.comboRAM.Location = new System.Drawing.Point(320, 259);
-			this.comboRAM.Name = "comboRAM";
-			this.comboRAM.Size = new System.Drawing.Size(616, 32);
-			this.comboRAM.TabIndex = 53;
-			this.comboRAM.SelectedIndexChanged += new System.EventHandler(this.comboRAM_SelectedIndexChanged);
+			this.RAMComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.RAMComboBox.FormattingEnabled = true;
+			this.RAMComboBox.Location = new System.Drawing.Point(320, 259);
+			this.RAMComboBox.Name = "RAMComboBox";
+			this.RAMComboBox.Size = new System.Drawing.Size(616, 32);
+			this.RAMComboBox.TabIndex = 53;
+			this.RAMComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboRAM_SelectedIndexChanged);
 			// 
-			// comboMother
+			// MotherComboBox
 			// 
-			this.comboMother.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboMother.FormattingEnabled = true;
-			this.comboMother.Location = new System.Drawing.Point(320, 216);
-			this.comboMother.Name = "comboMother";
-			this.comboMother.Size = new System.Drawing.Size(616, 32);
-			this.comboMother.TabIndex = 54;
-			this.comboMother.SelectedIndexChanged += new System.EventHandler(this.comboMother_SelectedIndexChanged);
+			this.MotherComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.MotherComboBox.FormattingEnabled = true;
+			this.MotherComboBox.Location = new System.Drawing.Point(320, 216);
+			this.MotherComboBox.Name = "MotherComboBox";
+			this.MotherComboBox.Size = new System.Drawing.Size(616, 32);
+			this.MotherComboBox.TabIndex = 54;
+			this.MotherComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboMother_SelectedIndexChanged);
 			// 
-			// comboGPU
+			// GPUComboBox
 			// 
-			this.comboGPU.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.comboGPU.FormattingEnabled = true;
-			this.comboGPU.Location = new System.Drawing.Point(320, 173);
-			this.comboGPU.Name = "comboGPU";
-			this.comboGPU.Size = new System.Drawing.Size(616, 32);
-			this.comboGPU.TabIndex = 55;
-			this.comboGPU.SelectedIndexChanged += new System.EventHandler(this.comboGPU_SelectedIndexChanged);
+			this.GPUComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.GPUComboBox.FormattingEnabled = true;
+			this.GPUComboBox.Location = new System.Drawing.Point(320, 173);
+			this.GPUComboBox.Name = "GPUComboBox";
+			this.GPUComboBox.Size = new System.Drawing.Size(616, 32);
+			this.GPUComboBox.TabIndex = 55;
+			this.GPUComboBox.SelectedIndexChanged += new System.EventHandler(this.ComboGPU_SelectedIndexChanged);
 			// 
-			// chbuttonCPU
+			// ChangeCPUButton
 			// 
-			this.chbuttonCPU.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonCPU.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonCPU.Location = new System.Drawing.Point(943, 130);
-			this.chbuttonCPU.Name = "chbuttonCPU";
-			this.chbuttonCPU.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonCPU.TabIndex = 56;
-			this.chbuttonCPU.Text = "Изменить";
-			this.chbuttonCPU.UseVisualStyleBackColor = false;
-			this.chbuttonCPU.Click += new System.EventHandler(this.chbuttonCPU_Click);
+			this.ChangeCPUButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeCPUButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeCPUButton.Location = new System.Drawing.Point(943, 130);
+			this.ChangeCPUButton.Name = "ChangeCPUButton";
+			this.ChangeCPUButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeCPUButton.TabIndex = 56;
+			this.ChangeCPUButton.Text = "Изменить";
+			this.ChangeCPUButton.UseVisualStyleBackColor = false;
+			this.ChangeCPUButton.Click += new System.EventHandler(this.ChangeCPUButton_Click);
 			// 
-			// buttonSSD
+			// ChangeSSDButton
 			// 
-			this.buttonSSD.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonSSD.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonSSD.Location = new System.Drawing.Point(942, 508);
-			this.buttonSSD.Name = "buttonSSD";
-			this.buttonSSD.Size = new System.Drawing.Size(183, 33);
-			this.buttonSSD.TabIndex = 57;
-			this.buttonSSD.Text = "Изменить";
-			this.buttonSSD.UseVisualStyleBackColor = false;
-			this.buttonSSD.Click += new System.EventHandler(this.buttonSSD_Click);
+			this.ChangeSSDButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeSSDButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeSSDButton.Location = new System.Drawing.Point(942, 508);
+			this.ChangeSSDButton.Name = "ChangeSSDButton";
+			this.ChangeSSDButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeSSDButton.TabIndex = 57;
+			this.ChangeSSDButton.Text = "Изменить";
+			this.ChangeSSDButton.UseVisualStyleBackColor = false;
+			this.ChangeSSDButton.Click += new System.EventHandler(this.ButtonSSD_Click);
 			// 
-			// chbuttonCase
+			// ChangeCaseButton
 			// 
-			this.chbuttonCase.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonCase.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonCase.Location = new System.Drawing.Point(942, 467);
-			this.chbuttonCase.Name = "chbuttonCase";
-			this.chbuttonCase.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonCase.TabIndex = 58;
-			this.chbuttonCase.Text = "Изменить";
-			this.chbuttonCase.UseVisualStyleBackColor = false;
-			this.chbuttonCase.Click += new System.EventHandler(this.chbuttonCase_Click);
+			this.ChangeCaseButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeCaseButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeCaseButton.Location = new System.Drawing.Point(942, 467);
+			this.ChangeCaseButton.Name = "ChangeCaseButton";
+			this.ChangeCaseButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeCaseButton.TabIndex = 58;
+			this.ChangeCaseButton.Text = "Изменить";
+			this.ChangeCaseButton.UseVisualStyleBackColor = false;
+			this.ChangeCaseButton.Click += new System.EventHandler(this.ChbuttonCase_Click);
 			// 
-			// chbuttonCooler
+			// ChangeCoolerButton
 			// 
-			this.chbuttonCooler.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonCooler.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonCooler.Location = new System.Drawing.Point(942, 425);
-			this.chbuttonCooler.Name = "chbuttonCooler";
-			this.chbuttonCooler.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonCooler.TabIndex = 59;
-			this.chbuttonCooler.Text = "Изменить";
-			this.chbuttonCooler.UseVisualStyleBackColor = false;
-			this.chbuttonCooler.Click += new System.EventHandler(this.chbuttonCooler_Click);
+			this.ChangeCoolerButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeCoolerButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeCoolerButton.Location = new System.Drawing.Point(942, 425);
+			this.ChangeCoolerButton.Name = "ChangeCoolerButton";
+			this.ChangeCoolerButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeCoolerButton.TabIndex = 59;
+			this.ChangeCoolerButton.Text = "Изменить";
+			this.ChangeCoolerButton.UseVisualStyleBackColor = false;
+			this.ChangeCoolerButton.Click += new System.EventHandler(this.ChbuttonCooler_Click);
 			// 
-			// chbuttonHard
+			// ChangeHardButton
 			// 
-			this.chbuttonHard.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonHard.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonHard.Location = new System.Drawing.Point(943, 383);
-			this.chbuttonHard.Name = "chbuttonHard";
-			this.chbuttonHard.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonHard.TabIndex = 60;
-			this.chbuttonHard.Text = "Изменить";
-			this.chbuttonHard.UseVisualStyleBackColor = false;
-			this.chbuttonHard.Click += new System.EventHandler(this.chbuttonHard_Click);
+			this.ChangeHardButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeHardButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeHardButton.Location = new System.Drawing.Point(943, 383);
+			this.ChangeHardButton.Name = "ChangeHardButton";
+			this.ChangeHardButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeHardButton.TabIndex = 60;
+			this.ChangeHardButton.Text = "Изменить";
+			this.ChangeHardButton.UseVisualStyleBackColor = false;
+			this.ChangeHardButton.Click += new System.EventHandler(this.ChbuttonHard_Click);
 			// 
-			// chbuttonPower
+			// ChangePowerButton
 			// 
-			this.chbuttonPower.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonPower.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonPower.Location = new System.Drawing.Point(943, 342);
-			this.chbuttonPower.Name = "chbuttonPower";
-			this.chbuttonPower.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonPower.TabIndex = 61;
-			this.chbuttonPower.Text = "Изменить";
-			this.chbuttonPower.UseVisualStyleBackColor = false;
-			this.chbuttonPower.Click += new System.EventHandler(this.chbuttonPower_Click);
+			this.ChangePowerButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangePowerButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangePowerButton.Location = new System.Drawing.Point(943, 342);
+			this.ChangePowerButton.Name = "ChangePowerButton";
+			this.ChangePowerButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangePowerButton.TabIndex = 61;
+			this.ChangePowerButton.Text = "Изменить";
+			this.ChangePowerButton.UseVisualStyleBackColor = false;
+			this.ChangePowerButton.Click += new System.EventHandler(this.ChbuttonPower_Click);
 			// 
-			// chbuttonNumOfRam
+			// ChangeNumOfRamButton
 			// 
-			this.chbuttonNumOfRam.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonNumOfRam.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonNumOfRam.Location = new System.Drawing.Point(942, 300);
-			this.chbuttonNumOfRam.Name = "chbuttonNumOfRam";
-			this.chbuttonNumOfRam.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonNumOfRam.TabIndex = 62;
-			this.chbuttonNumOfRam.Text = "Изменить";
-			this.chbuttonNumOfRam.UseVisualStyleBackColor = false;
-			this.chbuttonNumOfRam.Click += new System.EventHandler(this.chbuttonNumOfRam_Click);
+			this.ChangeNumOfRamButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeNumOfRamButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeNumOfRamButton.Location = new System.Drawing.Point(942, 300);
+			this.ChangeNumOfRamButton.Name = "ChangeNumOfRamButton";
+			this.ChangeNumOfRamButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeNumOfRamButton.TabIndex = 62;
+			this.ChangeNumOfRamButton.Text = "Изменить";
+			this.ChangeNumOfRamButton.UseVisualStyleBackColor = false;
+			this.ChangeNumOfRamButton.Click += new System.EventHandler(this.ChbuttonNumOfRam_Click);
 			// 
-			// chbuttonRam
+			// ChangeRAMButton
 			// 
-			this.chbuttonRam.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonRam.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonRam.Location = new System.Drawing.Point(943, 259);
-			this.chbuttonRam.Name = "chbuttonRam";
-			this.chbuttonRam.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonRam.TabIndex = 63;
-			this.chbuttonRam.Text = "Изменить";
-			this.chbuttonRam.UseVisualStyleBackColor = false;
-			this.chbuttonRam.Click += new System.EventHandler(this.chbuttonRam_Click);
+			this.ChangeRAMButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeRAMButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeRAMButton.Location = new System.Drawing.Point(943, 259);
+			this.ChangeRAMButton.Name = "ChangeRAMButton";
+			this.ChangeRAMButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeRAMButton.TabIndex = 63;
+			this.ChangeRAMButton.Text = "Изменить";
+			this.ChangeRAMButton.UseVisualStyleBackColor = false;
+			this.ChangeRAMButton.Click += new System.EventHandler(this.ChbuttonRam_Click);
 			// 
-			// chbuttonMother
+			// ChangeMotherButton
 			// 
-			this.chbuttonMother.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonMother.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonMother.Location = new System.Drawing.Point(942, 216);
-			this.chbuttonMother.Name = "chbuttonMother";
-			this.chbuttonMother.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonMother.TabIndex = 64;
-			this.chbuttonMother.Text = "Изменить";
-			this.chbuttonMother.UseVisualStyleBackColor = false;
-			this.chbuttonMother.Click += new System.EventHandler(this.chbuttonMother_Click);
+			this.ChangeMotherButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeMotherButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeMotherButton.Location = new System.Drawing.Point(942, 216);
+			this.ChangeMotherButton.Name = "ChangeMotherButton";
+			this.ChangeMotherButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeMotherButton.TabIndex = 64;
+			this.ChangeMotherButton.Text = "Изменить";
+			this.ChangeMotherButton.UseVisualStyleBackColor = false;
+			this.ChangeMotherButton.Click += new System.EventHandler(this.ChbuttonMother_Click);
 			// 
-			// chbuttonGPU
+			// ChangeGPUButton
 			// 
-			this.chbuttonGPU.BackColor = System.Drawing.SystemColors.Control;
-			this.chbuttonGPU.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.chbuttonGPU.Location = new System.Drawing.Point(943, 173);
-			this.chbuttonGPU.Name = "chbuttonGPU";
-			this.chbuttonGPU.Size = new System.Drawing.Size(183, 33);
-			this.chbuttonGPU.TabIndex = 65;
-			this.chbuttonGPU.Text = "Изменить";
-			this.chbuttonGPU.UseVisualStyleBackColor = false;
-			this.chbuttonGPU.Click += new System.EventHandler(this.chbuttonGPU_Click);
+			this.ChangeGPUButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeGPUButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeGPUButton.Location = new System.Drawing.Point(943, 173);
+			this.ChangeGPUButton.Name = "ChangeGPUButton";
+			this.ChangeGPUButton.Size = new System.Drawing.Size(183, 33);
+			this.ChangeGPUButton.TabIndex = 65;
+			this.ChangeGPUButton.Text = "Изменить";
+			this.ChangeGPUButton.UseVisualStyleBackColor = false;
+			this.ChangeGPUButton.Click += new System.EventHandler(this.ChbuttonGPU_Click);
 			// 
-			// buttonSave
+			// SaveButton
 			// 
-			this.buttonSave.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonSave.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonSave.Location = new System.Drawing.Point(769, 565);
-			this.buttonSave.Name = "buttonSave";
-			this.buttonSave.Size = new System.Drawing.Size(356, 89);
-			this.buttonSave.TabIndex = 66;
-			this.buttonSave.Text = "Сохранить изменения";
-			this.buttonSave.UseVisualStyleBackColor = false;
-			this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+			this.SaveButton.BackColor = System.Drawing.SystemColors.Control;
+			this.SaveButton.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.SaveButton.Location = new System.Drawing.Point(769, 565);
+			this.SaveButton.Name = "SaveButton";
+			this.SaveButton.Size = new System.Drawing.Size(356, 89);
+			this.SaveButton.TabIndex = 66;
+			this.SaveButton.Text = "Сохранить изменения";
+			this.SaveButton.UseVisualStyleBackColor = false;
+			this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// label2
 			// 
@@ -515,7 +515,7 @@ namespace PCConfig
 			this.label3.Font = new System.Drawing.Font("Segoe Print", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
 			this.label3.Location = new System.Drawing.Point(435, 30);
 			this.label3.Name = "label3";
-			this.label3.Size = new System.Drawing.Size(378, 64);
+			this.label3.Size = new System.Drawing.Size(377, 64);
 			this.label3.TabIndex = 70;
 			this.label3.Text = "Изменение сборки";
 			// 
@@ -529,26 +529,26 @@ namespace PCConfig
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.labelPrice);
 			this.Controls.Add(this.label2);
-			this.Controls.Add(this.buttonSave);
-			this.Controls.Add(this.chbuttonGPU);
-			this.Controls.Add(this.chbuttonMother);
-			this.Controls.Add(this.chbuttonRam);
-			this.Controls.Add(this.chbuttonNumOfRam);
-			this.Controls.Add(this.chbuttonPower);
-			this.Controls.Add(this.chbuttonHard);
-			this.Controls.Add(this.chbuttonCooler);
-			this.Controls.Add(this.chbuttonCase);
-			this.Controls.Add(this.buttonSSD);
-			this.Controls.Add(this.chbuttonCPU);
-			this.Controls.Add(this.comboGPU);
-			this.Controls.Add(this.comboMother);
-			this.Controls.Add(this.comboRAM);
-			this.Controls.Add(this.comboNumOfRam);
-			this.Controls.Add(this.comboPower);
-			this.Controls.Add(this.comboHard);
-			this.Controls.Add(this.comboCooler);
-			this.Controls.Add(this.comboCase);
-			this.Controls.Add(this.comboSSD);
+			this.Controls.Add(this.SaveButton);
+			this.Controls.Add(this.ChangeGPUButton);
+			this.Controls.Add(this.ChangeMotherButton);
+			this.Controls.Add(this.ChangeRAMButton);
+			this.Controls.Add(this.ChangeNumOfRamButton);
+			this.Controls.Add(this.ChangePowerButton);
+			this.Controls.Add(this.ChangeHardButton);
+			this.Controls.Add(this.ChangeCoolerButton);
+			this.Controls.Add(this.ChangeCaseButton);
+			this.Controls.Add(this.ChangeSSDButton);
+			this.Controls.Add(this.ChangeCPUButton);
+			this.Controls.Add(this.GPUComboBox);
+			this.Controls.Add(this.MotherComboBox);
+			this.Controls.Add(this.RAMComboBox);
+			this.Controls.Add(this.NumOfRamComboBox);
+			this.Controls.Add(this.PowerComboBox);
+			this.Controls.Add(this.HardComboBox);
+			this.Controls.Add(this.CoolerComboBox);
+			this.Controls.Add(this.CaseComboBox);
+			this.Controls.Add(this.SSDComboBox);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.labelSSD);
 			this.Controls.Add(this.labelGPU);
@@ -559,8 +559,8 @@ namespace PCConfig
 			this.Controls.Add(this.labelCooler);
 			this.Controls.Add(this.labelCase);
 			this.Controls.Add(this.labelCPU);
-			this.Controls.Add(this.comboCPU);
-			this.Controls.Add(this.buttonBack);
+			this.Controls.Add(this.CPUComboBox);
+			this.Controls.Add(this.BackButton);
 			this.Controls.Add(this.buttonClose);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
 			this.Name = "ChangeConfig";
@@ -576,8 +576,8 @@ namespace PCConfig
 		#endregion
 
 		private System.Windows.Forms.Button buttonClose;
-		private System.Windows.Forms.Button buttonBack;
-		private System.Windows.Forms.ComboBox comboCPU;
+		private System.Windows.Forms.Button BackButton;
+		private System.Windows.Forms.ComboBox CPUComboBox;
 		private System.Windows.Forms.Label labelSSD;
 		private System.Windows.Forms.Label labelGPU;
 		private System.Windows.Forms.Label labelMotherboard;
@@ -588,26 +588,26 @@ namespace PCConfig
 		private System.Windows.Forms.Label labelCase;
 		private System.Windows.Forms.Label labelCPU;
 		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.ComboBox comboSSD;
-		private System.Windows.Forms.ComboBox comboCase;
-		private System.Windows.Forms.ComboBox comboCooler;
-		private System.Windows.Forms.ComboBox comboHard;
-		private System.Windows.Forms.ComboBox comboPower;
-		private System.Windows.Forms.ComboBox comboNumOfRam;
-		private System.Windows.Forms.ComboBox comboRAM;
-		private System.Windows.Forms.ComboBox comboMother;
-		private System.Windows.Forms.ComboBox comboGPU;
-		private System.Windows.Forms.Button chbuttonCPU;
-		private System.Windows.Forms.Button buttonSSD;
-		private System.Windows.Forms.Button chbuttonCase;
-		private System.Windows.Forms.Button chbuttonCooler;
-		private System.Windows.Forms.Button chbuttonHard;
-		private System.Windows.Forms.Button chbuttonPower;
-		private System.Windows.Forms.Button chbuttonNumOfRam;
-		private System.Windows.Forms.Button chbuttonRam;
-		private System.Windows.Forms.Button chbuttonMother;
-		private System.Windows.Forms.Button chbuttonGPU;
-		private System.Windows.Forms.Button buttonSave;
+		private System.Windows.Forms.ComboBox SSDComboBox;
+		private System.Windows.Forms.ComboBox CaseComboBox;
+		private System.Windows.Forms.ComboBox CoolerComboBox;
+		private System.Windows.Forms.ComboBox HardComboBox;
+		private System.Windows.Forms.ComboBox PowerComboBox;
+		private System.Windows.Forms.ComboBox NumOfRamComboBox;
+		private System.Windows.Forms.ComboBox RAMComboBox;
+		private System.Windows.Forms.ComboBox MotherComboBox;
+		private System.Windows.Forms.ComboBox GPUComboBox;
+		private System.Windows.Forms.Button ChangeCPUButton;
+		private System.Windows.Forms.Button ChangeSSDButton;
+		private System.Windows.Forms.Button ChangeCaseButton;
+		private System.Windows.Forms.Button ChangeCoolerButton;
+		private System.Windows.Forms.Button ChangeHardButton;
+		private System.Windows.Forms.Button ChangePowerButton;
+		private System.Windows.Forms.Button ChangeNumOfRamButton;
+		private System.Windows.Forms.Button ChangeRAMButton;
+		private System.Windows.Forms.Button ChangeMotherButton;
+		private System.Windows.Forms.Button ChangeGPUButton;
+		private System.Windows.Forms.Button SaveButton;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label labelPrice;
 		private System.Windows.Forms.Label label4;

@@ -8,14 +8,14 @@ using System.Security.Principal;
 
 namespace PCConfig
 {
-	public partial class formAuto : Form
+	public partial class AutoForm : Form
 	{
-		public formAuto(Config config)
+		public AutoForm(Config config)
 		{
 			InitializeComponent();
 			this.config = config;
 		}
-		public formAuto(string activePreset, Int64 minPrice, Int64 maxPrice, string cpuName, string gpuName)
+		public AutoForm(string activePreset, Int64 minPrice, Int64 maxPrice, string cpuName, string gpuName)
 		{
 			InitializeComponent();
 			this.activePreset = activePreset;
@@ -127,7 +127,7 @@ namespace PCConfig
 			pictureCase.ImageLocation = path;
 		}
 
-		private void formAuto_Load(object sender, EventArgs e)
+		private void AutoForm_Load(object sender, EventArgs e)
 		{
 			Configs = GetConfigs().Select();
 			if (!config.isFilled)
@@ -140,7 +140,7 @@ namespace PCConfig
 		}
 
 
-		private void buttonNextConfig_Click(object sender, EventArgs e)
+		private void NextConfigButton_Click(object sender, EventArgs e)
 		{
 			if ((activeConfig + 1) <= Configs.Length - 1)
 			{
@@ -151,7 +151,7 @@ namespace PCConfig
 			}
 		}
 
-		private void buttonPrevConfig_Click(object sender, EventArgs e)
+		private void PreviousConfigButton_Click(object sender, EventArgs e)
 		{
 			if ((activeConfig - 1) >= 0)
 			{
@@ -162,7 +162,7 @@ namespace PCConfig
 			}
 		}
 
-		private void buttonSaveAsFile_Click(object sender, EventArgs e)
+		private void SaveAsFileButton_Click(object sender, EventArgs e)
 		{
 			string Desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 			StreamWriter sr = new StreamWriter(Desktop + "\\PCConfig.txt");
@@ -181,25 +181,25 @@ namespace PCConfig
 			MessageBox.Show("Ваш файл с кофигурацией \nсохранен на рабочий стол");
 		}
 
-		private void buttonChangeConfig_Click(object sender, EventArgs e)
+		private void ChangeConfigButton_Click(object sender, EventArgs e)
 		{
 			ChangeConfig changeConfig = new ChangeConfig(config);
 			Hide();
 			changeConfig.Show();
 		}
-		private void buttonBack_Click(object sender, EventArgs e)
+		private void BackButton_Click(object sender, EventArgs e)
 		{
 			Hide();
-			formMain MainForm = new formMain(activePreset, cpuName, gpuName, minPrice, maxPrice);
+			MainForm MainForm = new MainForm(activePreset, cpuName, gpuName, minPrice, maxPrice);
 			MainForm.Show();
 		}
-		private void buttonClose_Click(object sender, EventArgs e)
+		private void CloseButton_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
 
 		Point lastPoint;
-		private void formAuto_MouseMove(object sender, MouseEventArgs e)
+		private void AutoForm_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
@@ -208,7 +208,7 @@ namespace PCConfig
 			}
 		}
 
-		private void formAuto_MouseDown(object sender, MouseEventArgs e)
+		private void AutoForm_MouseDown(object sender, MouseEventArgs e)
 		{
 			lastPoint = new Point(e.X, e.Y);
 		}

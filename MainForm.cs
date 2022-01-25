@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace PCConfig
 {
-	public partial class formMain : Form
+	public partial class MainForm : Form
 	{
-		public formMain(string activePreset, string cpuName, string gpuName, Int64 minPrice, Int64 maxPrice)
+		public MainForm(string activePreset, string cpuName, string gpuName, Int64 minPrice, Int64 maxPrice)
 		{
 			InitializeComponent();
 			this.activePreset = activePreset;
@@ -17,7 +17,7 @@ namespace PCConfig
 			this.maxPrice = maxPrice;
 			this.activePresets = 1;
 		}
-		public formMain()
+		public MainForm()
 		{
 			InitializeComponent();
 		}
@@ -38,21 +38,21 @@ namespace PCConfig
 			}
 			return true;
 		}
-		private void buttonAutoConfig_Click(object sender, EventArgs e)
+		private void AutoConfigButton_Click(object sender, EventArgs e)
 		{
 			if (activePresets != 1)
 			{
 				MessageBox.Show("Некрректное количество сборок");
 				return;
 			}
-			if (IsAlpha(textMax.Text) == false || IsAlpha(textMin.Text) == false)
+			if (IsAlpha(MaxPriceTextBox.Text) == false || IsAlpha(MinPriceTextBox.Text) == false)
 			{
 				MessageBox.Show("Некорректно введена цена");
 				return;
 			}
-			if(string.IsNullOrWhiteSpace(textMin.Text))	
+			if(string.IsNullOrWhiteSpace(MinPriceTextBox.Text))	
 				minPrice = 0;
-			if (string.IsNullOrWhiteSpace(textMax.Text)) 
+			if (string.IsNullOrWhiteSpace(MaxPriceTextBox.Text)) 
 				maxPrice = Int64.MaxValue;
 			if (minPrice > maxPrice)
 			{
@@ -65,20 +65,20 @@ namespace PCConfig
 				return;
 			}
 
-			formAuto autoConfig = new formAuto(activePreset, minPrice, maxPrice, cpuName, gpuName);
+			AutoForm autoConfig = new AutoForm(activePreset, minPrice, maxPrice, cpuName, gpuName);
 			this.Hide();
 			autoConfig.Show();
 		}
 
 		private void UpdateFields()
 		{
-			if (checkGame.Checked) activePreset = "game";
-			else if (checkHome.Checked) activePreset = "home";
+			if (GameCheckBox.Checked) activePreset = "game";
+			else if (HomeCheckBox.Checked) activePreset = "home";
 			else activePreset = "work";
-			cpuName = comboCPU.Text;
-			gpuName = comboGPU.Text;
-			minPrice = string.IsNullOrWhiteSpace(textMin.Text)? 0 : Convert.ToInt64(textMin.Text);
-			maxPrice = string.IsNullOrWhiteSpace(textMax.Text) ? 0 : Convert.ToInt64(textMax.Text);
+			cpuName = CPUComboBox.Text;
+			gpuName = GPUComboBox.Text;
+			minPrice = string.IsNullOrWhiteSpace(MinPriceTextBox.Text)? 0 : Convert.ToInt64(MinPriceTextBox.Text);
+			maxPrice = string.IsNullOrWhiteSpace(MaxPriceTextBox.Text) ? 0 : Convert.ToInt64(MaxPriceTextBox.Text);
 		}
 		private bool IsConfigsFounded()
 		{
@@ -162,26 +162,26 @@ namespace PCConfig
 				obj.BackColor = Color.White;
 			}
 		}
-		private void checkGame_CheckedChanged(object sender, EventArgs e)
+		private void GameCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
-			ChangeCheckBoxColor(checkGame);
+			ChangeCheckBoxColor(GameCheckBox);
 		}
-		private void checkWork_CheckedChanged(object sender, EventArgs e)
+		private void WorkCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
-			ChangeCheckBoxColor(checkWork);
+			ChangeCheckBoxColor(WorkCheckBox);
 		}
-		private void checkHome_CheckedChanged(object sender, EventArgs e)
+		private void HomeCheckBox_CheckedChanged(object sender, EventArgs e)
 		{
-			ChangeCheckBoxColor(checkHome);
+			ChangeCheckBoxColor(HomeCheckBox);
 		}
-		private void buttonClose_Click(object sender, EventArgs e)
+		private void CloseButton_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
 		}
 
 
 		Point lastPoint;
-		private void formMain_MouseMove(object sender, MouseEventArgs e)
+		private void MainForm_MouseMove(object sender, MouseEventArgs e)
 		{
 			if (e.Button == MouseButtons.Left)
 			{
@@ -189,7 +189,7 @@ namespace PCConfig
 				this.Top += e.Y - lastPoint.Y;
 			}
 		}
-		private void formMain_MouseDown(object sender, MouseEventArgs e)
+		private void MainForm_MouseDown(object sender, MouseEventArgs e)
 		{
 			lastPoint = new Point(e.X, e.Y);
 		}

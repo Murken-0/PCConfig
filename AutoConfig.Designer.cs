@@ -1,6 +1,6 @@
 ﻿namespace PCConfig
 {
-  partial class formAuto
+  partial class AutoForm
   {
     /// <summary>
     /// Required designer variable.
@@ -29,7 +29,7 @@
     private void InitializeComponent()
     {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formAuto));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AutoForm));
 			this.buttonClose = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.pictureCase = new System.Windows.Forms.PictureBox();
@@ -41,13 +41,13 @@
 			this.labelRAM = new System.Windows.Forms.Label();
 			this.labelMotherboard = new System.Windows.Forms.Label();
 			this.labelGPU = new System.Windows.Forms.Label();
-			this.buttonNextConfig = new System.Windows.Forms.Button();
-			this.buttonPrevConfig = new System.Windows.Forms.Button();
-			this.buttonSaveAsFile = new System.Windows.Forms.Button();
-			this.buttonBack = new System.Windows.Forms.Button();
+			this.NextConfigButton = new System.Windows.Forms.Button();
+			this.PreviousConfigButton = new System.Windows.Forms.Button();
+			this.SaveAsFileButton = new System.Windows.Forms.Button();
+			this.BackButton = new System.Windows.Forms.Button();
 			this.labelPrice = new System.Windows.Forms.Label();
 			this.labelSSD = new System.Windows.Forms.Label();
-			this.buttonChangeConfig = new System.Windows.Forms.Button();
+			this.ChangeConfigButton = new System.Windows.Forms.Button();
 			this.tipCPU = new System.Windows.Forms.ToolTip(this.components);
 			this.tipGPU = new System.Windows.Forms.ToolTip(this.components);
 			this.tipMB = new System.Windows.Forms.ToolTip(this.components);
@@ -73,7 +73,7 @@
 			this.buttonClose.TabIndex = 19;
 			this.buttonClose.Text = "X";
 			this.buttonClose.UseVisualStyleBackColor = false;
-			this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
+			this.buttonClose.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// label1
 			// 
@@ -207,54 +207,54 @@
 			this.labelGPU.TabIndex = 29;
 			this.labelGPU.Text = "Видеокарта: ";
 			// 
-			// buttonNextConfig
+			// NextConfigButton
 			// 
-			this.buttonNextConfig.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonNextConfig.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonNextConfig.Location = new System.Drawing.Point(50, 515);
-			this.buttonNextConfig.Name = "buttonNextConfig";
-			this.buttonNextConfig.Size = new System.Drawing.Size(368, 43);
-			this.buttonNextConfig.TabIndex = 30;
-			this.buttonNextConfig.Text = "Следующая сборка";
-			this.buttonNextConfig.UseVisualStyleBackColor = false;
-			this.buttonNextConfig.Click += new System.EventHandler(this.buttonNextConfig_Click);
+			this.NextConfigButton.BackColor = System.Drawing.SystemColors.Control;
+			this.NextConfigButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.NextConfigButton.Location = new System.Drawing.Point(50, 515);
+			this.NextConfigButton.Name = "NextConfigButton";
+			this.NextConfigButton.Size = new System.Drawing.Size(368, 43);
+			this.NextConfigButton.TabIndex = 30;
+			this.NextConfigButton.Text = "Следующая сборка";
+			this.NextConfigButton.UseVisualStyleBackColor = false;
+			this.NextConfigButton.Click += new System.EventHandler(this.NextConfigButton_Click);
 			// 
-			// buttonPrevConfig
+			// PreviousConfigButton
 			// 
-			this.buttonPrevConfig.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonPrevConfig.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonPrevConfig.Location = new System.Drawing.Point(50, 594);
-			this.buttonPrevConfig.Name = "buttonPrevConfig";
-			this.buttonPrevConfig.Size = new System.Drawing.Size(368, 43);
-			this.buttonPrevConfig.TabIndex = 31;
-			this.buttonPrevConfig.Text = "Предыдущая сборка";
-			this.buttonPrevConfig.UseVisualStyleBackColor = false;
-			this.buttonPrevConfig.Click += new System.EventHandler(this.buttonPrevConfig_Click);
+			this.PreviousConfigButton.BackColor = System.Drawing.SystemColors.Control;
+			this.PreviousConfigButton.Font = new System.Drawing.Font("Segoe Print", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.PreviousConfigButton.Location = new System.Drawing.Point(50, 594);
+			this.PreviousConfigButton.Name = "PreviousConfigButton";
+			this.PreviousConfigButton.Size = new System.Drawing.Size(368, 43);
+			this.PreviousConfigButton.TabIndex = 31;
+			this.PreviousConfigButton.Text = "Предыдущая сборка";
+			this.PreviousConfigButton.UseVisualStyleBackColor = false;
+			this.PreviousConfigButton.Click += new System.EventHandler(this.PreviousConfigButton_Click);
 			// 
-			// buttonSaveAsFile
+			// SaveAsFileButton
 			// 
-			this.buttonSaveAsFile.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonSaveAsFile.Font = new System.Drawing.Font("Segoe Print", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonSaveAsFile.Location = new System.Drawing.Point(880, 571);
-			this.buttonSaveAsFile.Name = "buttonSaveAsFile";
-			this.buttonSaveAsFile.Size = new System.Drawing.Size(348, 66);
-			this.buttonSaveAsFile.TabIndex = 33;
-			this.buttonSaveAsFile.Text = "Сохранить в файл";
-			this.buttonSaveAsFile.UseVisualStyleBackColor = false;
-			this.buttonSaveAsFile.Click += new System.EventHandler(this.buttonSaveAsFile_Click);
+			this.SaveAsFileButton.BackColor = System.Drawing.SystemColors.Control;
+			this.SaveAsFileButton.Font = new System.Drawing.Font("Segoe Print", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.SaveAsFileButton.Location = new System.Drawing.Point(880, 571);
+			this.SaveAsFileButton.Name = "SaveAsFileButton";
+			this.SaveAsFileButton.Size = new System.Drawing.Size(348, 66);
+			this.SaveAsFileButton.TabIndex = 33;
+			this.SaveAsFileButton.Text = "Сохранить в файл";
+			this.SaveAsFileButton.UseVisualStyleBackColor = false;
+			this.SaveAsFileButton.Click += new System.EventHandler(this.SaveAsFileButton_Click);
 			// 
-			// buttonBack
+			// BackButton
 			// 
-			this.buttonBack.AutoSize = true;
-			this.buttonBack.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonBack.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonBack.Location = new System.Drawing.Point(50, 35);
-			this.buttonBack.Name = "buttonBack";
-			this.buttonBack.Size = new System.Drawing.Size(103, 50);
-			this.buttonBack.TabIndex = 34;
-			this.buttonBack.Text = "←";
-			this.buttonBack.UseVisualStyleBackColor = false;
-			this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+			this.BackButton.AutoSize = true;
+			this.BackButton.BackColor = System.Drawing.SystemColors.Control;
+			this.BackButton.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.BackButton.Location = new System.Drawing.Point(50, 35);
+			this.BackButton.Name = "BackButton";
+			this.BackButton.Size = new System.Drawing.Size(103, 50);
+			this.BackButton.TabIndex = 34;
+			this.BackButton.Text = "←";
+			this.BackButton.UseVisualStyleBackColor = false;
+			this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
 			// 
 			// labelPrice
 			// 
@@ -281,17 +281,17 @@
 			this.labelSSD.TabIndex = 36;
 			this.labelSSD.Text = "SSD: ";
 			// 
-			// buttonChangeConfig
+			// ChangeConfigButton
 			// 
-			this.buttonChangeConfig.BackColor = System.Drawing.SystemColors.Control;
-			this.buttonChangeConfig.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonChangeConfig.Location = new System.Drawing.Point(468, 35);
-			this.buttonChangeConfig.Name = "buttonChangeConfig";
-			this.buttonChangeConfig.Size = new System.Drawing.Size(365, 50);
-			this.buttonChangeConfig.TabIndex = 37;
-			this.buttonChangeConfig.Text = "Изменить сборку";
-			this.buttonChangeConfig.UseVisualStyleBackColor = false;
-			this.buttonChangeConfig.Click += new System.EventHandler(this.buttonChangeConfig_Click);
+			this.ChangeConfigButton.BackColor = System.Drawing.SystemColors.Control;
+			this.ChangeConfigButton.Font = new System.Drawing.Font("Segoe Print", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.ChangeConfigButton.Location = new System.Drawing.Point(468, 35);
+			this.ChangeConfigButton.Name = "ChangeConfigButton";
+			this.ChangeConfigButton.Size = new System.Drawing.Size(365, 50);
+			this.ChangeConfigButton.TabIndex = 37;
+			this.ChangeConfigButton.Text = "Изменить сборку";
+			this.ChangeConfigButton.UseVisualStyleBackColor = false;
+			this.ChangeConfigButton.Click += new System.EventHandler(this.ChangeConfigButton_Click);
 			// 
 			// tipCPU
 			// 
@@ -347,19 +347,19 @@
 			this.tipSSD.InitialDelay = 500;
 			this.tipSSD.ReshowDelay = 100;
 			// 
-			// formAuto
+			// AutoForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
 			this.ClientSize = new System.Drawing.Size(1264, 681);
-			this.Controls.Add(this.buttonChangeConfig);
+			this.Controls.Add(this.ChangeConfigButton);
 			this.Controls.Add(this.labelSSD);
 			this.Controls.Add(this.labelPrice);
-			this.Controls.Add(this.buttonBack);
-			this.Controls.Add(this.buttonSaveAsFile);
-			this.Controls.Add(this.buttonPrevConfig);
-			this.Controls.Add(this.buttonNextConfig);
+			this.Controls.Add(this.BackButton);
+			this.Controls.Add(this.SaveAsFileButton);
+			this.Controls.Add(this.PreviousConfigButton);
+			this.Controls.Add(this.NextConfigButton);
 			this.Controls.Add(this.labelGPU);
 			this.Controls.Add(this.labelMotherboard);
 			this.Controls.Add(this.labelRAM);
@@ -372,11 +372,11 @@
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.buttonClose);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-			this.Name = "formAuto";
+			this.Name = "AutoForm";
 			this.Text = "AutoConfig";
-			this.Load += new System.EventHandler(this.formAuto_Load);
-			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formAuto_MouseDown);
-			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.formAuto_MouseMove);
+			this.Load += new System.EventHandler(this.AutoForm_Load);
+			this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AutoForm_MouseDown);
+			this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AutoForm_MouseMove);
 			((System.ComponentModel.ISupportInitialize)(this.pictureCase)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -396,13 +396,13 @@
     private System.Windows.Forms.Label labelRAM;
     private System.Windows.Forms.Label labelMotherboard;
     private System.Windows.Forms.Label labelGPU;
-    private System.Windows.Forms.Button buttonNextConfig;
-    private System.Windows.Forms.Button buttonPrevConfig;
-    private System.Windows.Forms.Button buttonSaveAsFile;
-    private System.Windows.Forms.Button buttonBack;
+    private System.Windows.Forms.Button NextConfigButton;
+    private System.Windows.Forms.Button PreviousConfigButton;
+    private System.Windows.Forms.Button SaveAsFileButton;
+    private System.Windows.Forms.Button BackButton;
     private System.Windows.Forms.Label labelPrice;
 		private System.Windows.Forms.Label labelSSD;
-		private System.Windows.Forms.Button buttonChangeConfig;
+		private System.Windows.Forms.Button ChangeConfigButton;
 		private System.Windows.Forms.ToolTip tipCPU;
 		private System.Windows.Forms.ToolTip tipGPU;
 		private System.Windows.Forms.ToolTip tipMB;
