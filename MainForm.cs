@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -30,6 +29,15 @@ namespace PCConfig
 		private Int64 maxPrice = Int64.MaxValue;
 		private int activePresets = 0;
 
+		private bool IsAlpha(string str)
+		{
+			for (int i = 0; i < str.Length; i++)
+			{
+				if (char.IsLetter(str[i]) == false)
+					return false;
+			}
+			return true;
+		}
 		private void buttonAutoConfig_Click(object sender, EventArgs e)
 		{
 			if (activePresets != 1)
@@ -68,76 +76,74 @@ namespace PCConfig
 			minPrice = Convert.ToInt64(textMin.Text);
 			maxPrice = Convert.ToInt64(textMax.Text);
 		}
-
 		private bool IsConfigsFounded()
 		{
 			UpdateFields();
-
-			DataBaseConnection db = new DataBaseConnection();
-			db.openConnection();
-			MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-			MySqlCommand commandSearchCurrent = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-				"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName and `GPU` = @gpuName", db.getConnection());
-			commandSearchCurrent.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrent.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrent.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrent.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
-			commandSearchCurrent.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
-
-			MySqlCommand commandSearchCurrentCPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName", db.getConnection());
-			commandSearchCurrentCPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrentCPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrentCPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrentCPU.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
-
-			MySqlCommand commandSearchCurrentGPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `GPU` = @gpuName", db.getConnection());
-			commandSearchCurrentGPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrentGPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrentGPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrentGPU.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
-
-			MySqlCommand commandSearchAll = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP", db.getConnection());
-			commandSearchAll.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchAll.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchAll.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+			SQLCommandManager cmdManager = new SQLCommandManager();
 
 			if (cpuName != "")
 			{
 				if (gpuName != "")
-					adapter.SelectCommand = commandSearchCurrent;
+				{
+					MySqlCommand commandSearchCurrent = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName and `GPU` = @gpuName ORDER BY `Price`");
+					commandSearchCurrent.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrent.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrent.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrent.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
+					commandSearchCurrent.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
+
+					if (cmdManager.GetTableByRequest(commandSearchCurrent).Rows.Count > 0)
+						return true;
+					else
+						return false;
+				}
 				else
-					adapter.SelectCommand = commandSearchCurrentCPU;
+				{
+					MySqlCommand commandSearchCurrentCPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName ORDER BY `Price`");
+					commandSearchCurrentCPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrentCPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrentCPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrentCPU.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
+
+					if (cmdManager.GetTableByRequest(commandSearchCurrentCPU).Rows.Count > 0)
+						return true;
+					else
+						return false;
+				}
 			}
 			else
 			{
 				if (gpuName != "")
-					adapter.SelectCommand = commandSearchCurrentGPU;
+				{
+					MySqlCommand commandSearchCurrentGPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `GPU` = @gpuName ORDER BY `Price`");
+					commandSearchCurrentGPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrentGPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrentGPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrentGPU.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
+
+					if (cmdManager.GetTableByRequest(commandSearchCurrentGPU).Rows.Count > 0)
+						return true;
+					else
+						return false;
+				}
 				else
-					adapter.SelectCommand = commandSearchAll;
+				{
+					MySqlCommand commandSearchAll = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP ORDER BY `Price`");
+					commandSearchAll.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchAll.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchAll.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+
+					if (cmdManager.GetTableByRequest(commandSearchAll).Rows.Count > 0)
+						return true;
+					else
+						return false;
+				}
 			}
-
-			DataTable table = new DataTable();
-			adapter.Fill(table);
-			db.closeConnection();
-
-			if (table.Rows.Count > 0) return true;
-			else return false;
 		}
-
-		private bool IsAlpha(string str)
-		{
-			for (int i = 0; i < str.Length; i++)
-			{
-				if (char.IsLetter(str[i]) == false)
-					return false;
-			}
-			return true;
-		}
-
 
 		private void ChangeCheckBoxColor(CheckBox obj)
 		{
@@ -164,7 +170,6 @@ namespace PCConfig
 		{
 			ChangeCheckBoxColor(checkHome);
 		}
-
 		private void buttonClose_Click(object sender, EventArgs e)
 		{
 			Application.Exit();
@@ -180,11 +185,9 @@ namespace PCConfig
 				this.Top += e.Y - lastPoint.Y;
 			}
 		}
-
 		private void formMain_MouseDown(object sender, MouseEventArgs e)
 		{
 			lastPoint = new Point(e.X, e.Y);
 		}
-
 	}
 }

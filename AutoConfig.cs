@@ -50,56 +50,58 @@ namespace PCConfig
 		}
 		public DataTable GetConfigs()
 		{
-			DataBaseConnection db = new DataBaseConnection();
-			db.openConnection();
-			MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-			MySqlCommand commandSearchCurrent = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-				"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName and `GPU` = @gpuName ORDER BY `Price`", db.getConnection());
-			commandSearchCurrent.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrent.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrent.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrent.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
-			commandSearchCurrent.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
-
-			MySqlCommand commandSearchCurrentCPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName ORDER BY `Price`", db.getConnection());
-			commandSearchCurrentCPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrentCPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrentCPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrentCPU.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
-
-			MySqlCommand commandSearchCurrentGPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `GPU` = @gpuName ORDER BY `Price`", db.getConnection());
-			commandSearchCurrentGPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchCurrentGPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchCurrentGPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
-			commandSearchCurrentGPU.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
-
-			MySqlCommand commandSearchAll = new MySqlCommand("SELECT * FROM `configs` WHERE " +
-			  "`Type` = @aP AND `Price` < @maxP AND `Price` > @minP ORDER BY `Price`", db.getConnection());
-			commandSearchAll.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
-			commandSearchAll.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
-			commandSearchAll.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+			SQLCommandManager cmdManager = new SQLCommandManager();
 
 			if (cpuName != "")
 			{
 				if (gpuName != "")
-					adapter.SelectCommand = commandSearchCurrent;
+				{
+					MySqlCommand commandSearchCurrent = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName and `GPU` = @gpuName ORDER BY `Price`");
+					commandSearchCurrent.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrent.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrent.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrent.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
+					commandSearchCurrent.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
+
+					return cmdManager.GetTableByRequest(commandSearchCurrent);
+				}
 				else
-					adapter.SelectCommand = commandSearchCurrentCPU;
+				{
+					MySqlCommand commandSearchCurrentCPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `CPU` = @cpuName ORDER BY `Price`");
+					commandSearchCurrentCPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrentCPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrentCPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrentCPU.Parameters.Add("@cpuName", MySqlDbType.VarChar).Value = cpuName;
+
+					return cmdManager.GetTableByRequest(commandSearchCurrentCPU);
+				}
 			}
 			else
 			{
 				if (gpuName != "")
-					adapter.SelectCommand = commandSearchCurrentGPU;
+				{
+					MySqlCommand commandSearchCurrentGPU = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP and `GPU` = @gpuName ORDER BY `Price`");
+					commandSearchCurrentGPU.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchCurrentGPU.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchCurrentGPU.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+					commandSearchCurrentGPU.Parameters.Add("@gpuName", MySqlDbType.VarChar).Value = gpuName;
+
+					return cmdManager.GetTableByRequest(commandSearchCurrentGPU);
+				}
 				else
-					adapter.SelectCommand = commandSearchAll;
+				{
+					MySqlCommand commandSearchAll = new MySqlCommand("SELECT * FROM `configs` WHERE " +
+						"`Type` = @aP AND `Price` < @maxP AND `Price` > @minP ORDER BY `Price`");
+					commandSearchAll.Parameters.Add("@aP", MySqlDbType.VarChar).Value = activePreset;
+					commandSearchAll.Parameters.Add("@minP", MySqlDbType.Int64).Value = minPrice;
+					commandSearchAll.Parameters.Add("@maxP", MySqlDbType.Int64).Value = maxPrice;
+
+					return cmdManager.GetTableByRequest(commandSearchAll);
+				}
 			}
-			DataTable table = new DataTable();
-			adapter.Fill(table);
-			db.closeConnection();
-			return table;
 		}
 
 		private void FillLables(Config config)
@@ -183,12 +185,12 @@ namespace PCConfig
 		private void buttonChangeConfig_Click(object sender, EventArgs e)
 		{
 			ChangeConfig changeConfig = new ChangeConfig(config);
-			this.Hide();
+			Hide();
 			changeConfig.Show();
 		}
 		private void buttonBack_Click(object sender, EventArgs e)
 		{
-			this.Hide();
+			Hide();
 			formMain MainForm = new formMain(activePreset, cpuName, gpuName, minPrice, maxPrice);
 			MainForm.Show();
 		}
@@ -202,8 +204,8 @@ namespace PCConfig
 		{
 			if (e.Button == MouseButtons.Left)
 			{
-				this.Left += e.X - lastPoint.X;
-				this.Top += e.Y - lastPoint.Y;
+				Left += e.X - lastPoint.X;
+				Top += e.Y - lastPoint.Y;
 			}
 		}
 
