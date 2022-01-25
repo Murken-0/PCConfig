@@ -16,7 +16,7 @@ namespace PCConfig
 
 		private Config config;
 		private Config usconfig;
-		private SQLCommandManager cmdManager;
+		private readonly SQLCommandManager cmdManager = new SQLCommandManager();
 
 		private DataRow[] CPU;
 		private DataRow[] GPU;
@@ -140,7 +140,6 @@ namespace PCConfig
 
 		private void chbuttonRam_Click(object sender, EventArgs e)
 		{
-			DataTable table = new DataTable();
 			MySqlCommand commandGetRam = new MySqlCommand("SELECT * FROM `ram` ORDER BY `Price`");
 
 			RAM = cmdManager.GetTableByRequest(commandGetRam).Select();

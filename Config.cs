@@ -23,95 +23,56 @@ namespace PCConfig
 		public void Fill(DataRow Config)
 		{
 			isFilled = true;
-
-			DataBaseConnection db = new DataBaseConnection();
-			db.openConnection();
-			MySqlDataAdapter adapter = new MySqlDataAdapter();
+			SQLCommandManager cmdManager = new SQLCommandManager();
 
 			numOfRam = Convert.ToInt32(Config["NumOfRam"]);
 			price = Convert.ToInt32(Config["Price"]);
 
-			MySqlCommand commandGetCPU = new MySqlCommand("SELECT * FROM `cpu` WHERE `Id` = @idCPU", db.getConnection());
+			MySqlCommand commandGetCPU = new MySqlCommand("SELECT * FROM `cpu` WHERE `Id` = @idCPU");
 			commandGetCPU.Parameters.Add("@idCPU", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idCPU"]);
 
-			MySqlCommand commandGetGPU = new MySqlCommand("SELECT * FROM `gpu` WHERE `Id` = @idGPU", db.getConnection());
+			MySqlCommand commandGetGPU = new MySqlCommand("SELECT * FROM `gpu` WHERE `Id` = @idGPU");
 			commandGetGPU.Parameters.Add("@idGPU", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idGPU"]);
 
-			MySqlCommand commandGetRAM = new MySqlCommand("SELECT * FROM `ram` WHERE `Id` = @idRAM", db.getConnection());
+			MySqlCommand commandGetRAM = new MySqlCommand("SELECT * FROM `ram` WHERE `Id` = @idRAM");
 			commandGetRAM.Parameters.Add("@idRAM", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idRAM"]);
 
-			MySqlCommand commandGetMB = new MySqlCommand("SELECT * FROM `motherboard` WHERE `Id` = @idMB", db.getConnection());
+			MySqlCommand commandGetMB = new MySqlCommand("SELECT * FROM `motherboard` WHERE `Id` = @idMB");
 			commandGetMB.Parameters.Add("@idMB", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idMB"]);
 
-			MySqlCommand commandGetPS = new MySqlCommand("SELECT * FROM `power` WHERE `Id` = @idPS", db.getConnection());
+			MySqlCommand commandGetPS = new MySqlCommand("SELECT * FROM `power` WHERE `Id` = @idPS");
 			commandGetPS.Parameters.Add("@idPS", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idPS"]);
 
-			MySqlCommand commandGetHD = new MySqlCommand("SELECT * FROM `harddrive` WHERE `Id` = @idHD", db.getConnection());
+			MySqlCommand commandGetHD = new MySqlCommand("SELECT * FROM `harddrive` WHERE `Id` = @idHD");
 			commandGetHD.Parameters.Add("@idHD", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idHD"]);
 
-			MySqlCommand commandGetCooler = new MySqlCommand("SELECT * FROM `cooler` WHERE `Id` = @idCooler", db.getConnection());
+			MySqlCommand commandGetCooler = new MySqlCommand("SELECT * FROM `cooler` WHERE `Id` = @idCooler");
 			commandGetCooler.Parameters.Add("@idCooler", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idCooler"]);
 
-			MySqlCommand commandGetCase = new MySqlCommand("SELECT * FROM `case` WHERE `Id` = @idCase", db.getConnection());
+			MySqlCommand commandGetCase = new MySqlCommand("SELECT * FROM `case` WHERE `Id` = @idCase");
 			commandGetCase.Parameters.Add("@idCase", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idCase"]);
 
-			MySqlCommand commandGetSSD = new MySqlCommand("SELECT * FROM `ssd` WHERE `Id` = @idSSD", db.getConnection());
+			MySqlCommand commandGetSSD = new MySqlCommand("SELECT * FROM `ssd` WHERE `Id` = @idSSD");
 			commandGetSSD.Parameters.Add("@idSSD", MySqlDbType.Int32).Value = Convert.ToInt32(Config["idSSD"]);
 
 
-			DataTable tableCPU = new DataTable();
-			adapter.SelectCommand = commandGetCPU;
-			adapter.Fill(tableCPU);
-			CPU = tableCPU.Select()[0];
-
+			
+			CPU = cmdManager.GetTableByRequest(commandGetCPU).Select()[0];
 			if (DBNull.Value.Equals(Config["idGPU"]) == false)
-			{
-				DataTable tableGPU = new DataTable();
-				adapter.SelectCommand = commandGetGPU;
-				adapter.Fill(tableGPU);
-				GPU = tableGPU.Select()[0];
-			}
-			else GPU = null;
-
-			DataTable tableRAM = new DataTable();
-			adapter.SelectCommand = commandGetRAM;
-			adapter.Fill(tableRAM);
-			RAM = tableRAM.Select()[0];
-
-			DataTable tableMB = new DataTable();
-			adapter.SelectCommand = commandGetMB;
-			adapter.Fill(tableMB);
-			Mother = tableMB.Select()[0];
-
-			DataTable tablePS = new DataTable();
-			adapter.SelectCommand = commandGetPS;
-			adapter.Fill(tablePS);
-			Power = tablePS.Select()[0];
-
-			DataTable tableHD = new DataTable();
-			adapter.SelectCommand = commandGetHD;
-			adapter.Fill(tableHD);
-			Hard = tableHD.Select()[0];
-
-			DataTable tableCooler = new DataTable();
-			adapter.SelectCommand = commandGetCooler;
-			adapter.Fill(tableCooler);
-			Cooler = tableCooler.Select()[0];
-
-			DataTable tableCase = new DataTable();
-			adapter.SelectCommand = commandGetCase;
-			adapter.Fill(tableCase);
-			Case = tableCase.Select()[0];
-
+				GPU = cmdManager.GetTableByRequest(commandGetGPU).Select()[0];
+			else 
+				GPU = null;
+			
+			RAM = cmdManager.GetTableByRequest(commandGetRAM).Select()[0];
+			Mother = cmdManager.GetTableByRequest(commandGetMB).Select()[0];
+			Power = cmdManager.GetTableByRequest(commandGetPS).Select()[0];
+			Hard = cmdManager.GetTableByRequest(commandGetHD).Select()[0];
+			Cooler = cmdManager.GetTableByRequest(commandGetCooler).Select()[0];
+			Case = cmdManager.GetTableByRequest(commandGetCase).Select()[0];
 			if (DBNull.Value.Equals(Config["idSSD"]) == false)
-			{
-				DataTable tableSSD = new DataTable();
-				adapter.SelectCommand = commandGetSSD;
-				adapter.Fill(tableSSD);
-				SSD = tableSSD.Select()[0];
-			}
-			else SSD = null;
-			db.closeConnection();
+				SSD = cmdManager.GetTableByRequest(commandGetSSD).Select()[0];
+			else 
+				SSD = null;
 		}
 
 		public int GetCurrentPrice()

@@ -25,15 +25,15 @@ namespace PCConfig
 		private string activePreset;
 		private string cpuName;
 		private string gpuName;
-		private Int64 minPrice = 0;
-		private Int64 maxPrice = Int64.MaxValue;
+		private Int64 minPrice;
+		private Int64 maxPrice;
 		private int activePresets = 0;
 
 		private bool IsAlpha(string str)
 		{
 			for (int i = 0; i < str.Length; i++)
 			{
-				if (char.IsLetter(str[i]) == false)
+				if (char.IsDigit(str[i]) == false)
 					return false;
 			}
 			return true;
@@ -50,7 +50,11 @@ namespace PCConfig
 				MessageBox.Show("Некорректно введена цена");
 				return;
 			}
-			if (Convert.ToInt64(textMin.Text) > Convert.ToInt64(textMax.Text))
+			if(string.IsNullOrWhiteSpace(textMin.Text))	
+				minPrice = 0;
+			if (string.IsNullOrWhiteSpace(textMax.Text)) 
+				maxPrice = Int64.MaxValue;
+			if (minPrice > maxPrice)
 			{
 				MessageBox.Show("Минимальная цена должна быть меньше максимальной");
 				return;
@@ -73,8 +77,8 @@ namespace PCConfig
 			else activePreset = "work";
 			cpuName = comboCPU.Text;
 			gpuName = comboGPU.Text;
-			minPrice = Convert.ToInt64(textMin.Text);
-			maxPrice = Convert.ToInt64(textMax.Text);
+			minPrice = string.IsNullOrWhiteSpace(textMin.Text)? 0 : Convert.ToInt64(textMin.Text);
+			maxPrice = string.IsNullOrWhiteSpace(textMax.Text) ? 0 : Convert.ToInt64(textMax.Text);
 		}
 		private bool IsConfigsFounded()
 		{

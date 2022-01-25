@@ -33,7 +33,7 @@ namespace PCConfig
 		public string cpuName;
 		public string gpuName;
 
-		Config config;
+		private readonly Config config;
 		DataRow[] Configs;
 
 		private void UpdateTips(Config config)
@@ -164,7 +164,6 @@ namespace PCConfig
 
 		private void buttonSaveAsFile_Click(object sender, EventArgs e)
 		{
-			WindowsIdentity wi = WindowsIdentity.GetCurrent();
 			string Desktop = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
 			StreamWriter sr = new StreamWriter(Desktop + "\\PCConfig.txt");
 			sr.WriteLine(labelCPU.Text);
