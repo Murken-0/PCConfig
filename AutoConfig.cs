@@ -120,6 +120,7 @@ namespace PCConfig
 			else labelSSD.Text = "SSD: отсутствует";
 
 			labelPrice.Text = "Примерная стоимость: " + config.GetCurrentPrice() + " руб.";
+
 			string path = Path.GetDirectoryName(Path.GetDirectoryName(Directory.GetCurrentDirectory())) + "\\Resources\\" + Convert.ToString(config.Case["Id"]) + ".jpg";
 			pictureCase.ImageLocation = path;
 		}
